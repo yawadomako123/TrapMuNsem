@@ -6,8 +6,8 @@
   --line: rgba(0, 0, 0, 0.18);
   --dark: #050505;
   --max: 1440px;
-  --serif: 'Bodoni Moda', Georgia, 'Times New Roman', serif;
-  --mono: 'Space Mono', 'Courier New', Courier, monospace;
+  --serif: 'Bodoni Moda', 'Noto Serif Display', Georgia, 'Times New Roman', serif;
+  --mono: 'Space Mono', 'Noto Sans Mono', 'Courier New', Courier, monospace;
 }
 
 * { box-sizing: border-box; }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { site, about, marqueeWord, chapters, services, contact } from './content.js'
+import { site, about, marqueeWord, chapters, amamere, services, contact } from './content.js'
 import './App.css'
 
 const YEAR = new Date().getFullYear()
@@ -8,6 +8,7 @@ const NAV = [
   ['#home', 'Home'],
   ['#about', 'About'],
   ['#work', 'Work'],
+  ['#amamere', 'Vintage'],
   ['#services', 'Services'],
   ['#contact', 'Contact'],
 ]
@@ -149,6 +150,39 @@ function Work({ onOpen }) {
   )
 }
 
+// The "ɛ" comes from a fallback font with a taller x-height, so it gets its own span to scale it down.
+function withOpenE(text) {
+  return text.split('ɛ').flatMap((part, i) => (i === 0 ? [part] : [<span key={i} className="open-e">ɛ</span>, part]))
+}
+
+function Amamere({ onOpen }) {
+  const images = amamere.items.map((item) => ({ src: item.src, alt: item.title, caption: item.title }))
+  return (
+    <section id="amamere" className="amamere section-dark">
+      <div className="amamere-intro">
+        <p className="mini-label">{amamere.label}</p>
+        <h2 aria-label={amamere.title}>{withOpenE(amamere.title)}</h2>
+        <p className="amamere-lede">{amamere.intro}</p>
+      </div>
+      <div className="amamere-grid">
+        {amamere.items.map((item, i) => (
+          <article key={item.src} className="amamere-card reveal">
+            <Photo src={item.src} alt={item.title} pos={item.pos} onOpen={() => onOpen(images, i)} />
+            <div className="amamere-caption">
+              <p className="amamere-meta">
+                <span>No. {String(i + 1).padStart(2, '0')}</span>
+                <span>{item.era}</span>
+              </p>
+              <h3>{item.title}</h3>
+              <p>{item.story}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function Services() {
   return (
     <section id="services" className="services section-light">
@@ -204,6 +238,7 @@ function Lightbox({ state, onClose, onStep }) {
   return (
     <div className="lightbox" onClick={onClose} role="dialog" aria-modal="true">
       <img src={img.src} alt={img.alt} onClick={(e) => e.stopPropagation()} />
+      {img.caption && <p className="lightbox-caption">{img.caption}</p>}
       <button className="lightbox-prev" onClick={(e) => { e.stopPropagation(); onStep(-1) }} aria-label="Previous">←</button>
       <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); onStep(1) }} aria-label="Next">→</button>
       <button className="lightbox-close" onClick={onClose} aria-label="Close">Close</button>
@@ -255,6 +290,7 @@ export default function App() {
         <About />
         <Marquee />
         <Work onOpen={open} />
+        <Amamere onOpen={open} />
         <Services />
         <Contact />
       </main>
