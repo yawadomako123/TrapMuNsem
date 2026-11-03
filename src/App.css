@@ -259,18 +259,12 @@ h1 {
 }
 
 @media (min-width: 681px) {
-  /* The Man: big portrait + tall full-length beside it, then a pair, then a trio. */
+  /* The Man: big portrait + tall full-length beside it, then two pairs. */
   .portrait-grid .tile:nth-child(1) { grid-column: span 4; }
   .portrait-grid .tile:nth-child(2) { grid-column: span 2; height: 100%; aspect-ratio: auto; contain: size; }
-  .portrait-grid .tile:nth-child(5),
-  .portrait-grid .tile:nth-child(6),
-  .portrait-grid .tile:nth-child(7) { grid-column: span 2; }
 
-  /* Editorial: a pair, a trio, then one wide closer. */
-  .editorial-grid .tile:nth-child(3),
-  .editorial-grid .tile:nth-child(4),
-  .editorial-grid .tile:nth-child(5) { grid-column: span 2; }
-  .editorial-grid .tile:nth-child(6) { grid-column: span 6; aspect-ratio: 16 / 10; }
+  /* Editorial: a pair, then one wide closer. */
+  .editorial-grid .tile:nth-child(3) { grid-column: span 6; aspect-ratio: 16 / 10; }
 
   /* Behind the scenes: one large image with two stacked beside it. */
   .bts-grid .tile:nth-child(1) { grid-column: span 4; grid-row: span 2; }
@@ -483,9 +477,9 @@ footer {
   .category-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .tile { grid-column: span 1; }
   .portrait-grid .tile:nth-child(1),
-  .editorial-grid .tile:nth-child(1),
+  .portrait-grid .tile:nth-child(6),
   .bts-grid .tile:nth-child(1) { grid-column: span 2; }
-  .editorial-grid .tile:nth-child(6) { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .editorial-grid .tile:nth-child(3) { grid-column: span 2; aspect-ratio: 4 / 3; }
   .services-grid { grid-template-columns: 1fr; }
   .services-grid div { min-height: auto; padding: 26px 22px; }
   footer { flex-direction: column; }

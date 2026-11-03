@@ -39,7 +39,6 @@ export const chapters = [
       { src: '/images/man-1.jpg', alt: 'Big Wilson in a black shirt and rosary' },
       { src: '/images/man-2.jpg', alt: 'Big Wilson in wide black trousers against a blue backdrop' },
       { src: '/images/man-3.jpg', alt: 'Big Wilson in an AIM05 jersey on red', pos: 'center 20%' },
-      { src: '/images/man-4.jpg', alt: 'Big Wilson self-styled in Ghana colours', pos: 'center 25%' },
       { src: '/images/man-5.jpg', alt: 'Big Wilson in a patterned wrap', pos: 'center 25%' },
       { src: '/images/man-6.jpg', alt: 'Big Wilson in a teal blazer and plaid shirt', pos: 'center 20%' },
       { src: '/images/man-7.jpg', alt: 'Big Wilson self-styled in denim vest and layered shorts', pos: 'center 10%' },
@@ -56,10 +55,7 @@ export const chapters = [
     layout: 'editorial',
     images: [
       { src: '/images/editorial-1.jpg', alt: 'Ritual Drip editorial', pos: 'center 30%' },
-      { src: '/images/editorial-2.jpg', alt: 'Old Soldier Never Dies editorial', pos: 'center 30%' },
       { src: '/images/editorial-3.jpg', alt: 'From the corner store to the cover page', pos: 'center 40%' },
-      { src: '/images/editorial-4.jpg', alt: 'Back Then editorial', pos: 'center 55%' },
-      { src: '/images/editorial-5.jpg', alt: 'Rooted in culture, dressed in power', pos: 'center 35%' },
       { src: '/images/editorial-6.jpg', alt: 'Abofra film cast', pos: 'center 42%' },
     ],
   },
