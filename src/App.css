@@ -266,10 +266,9 @@ h1 {
   /* Editorial: a pair, then one wide closer. */
   .editorial-grid .tile:nth-child(3) { grid-column: span 6; aspect-ratio: 16 / 10; }
 
-  /* Behind the scenes: one large image with two stacked beside it. */
-  .bts-grid .tile:nth-child(1) { grid-column: span 4; grid-row: span 2; }
-  .bts-grid .tile:nth-child(2),
-  .bts-grid .tile:nth-child(3) { grid-column: span 2; height: 100%; aspect-ratio: auto; contain: size; }
+  /* Behind the scenes: a portrait beside a wide group shot, same height. */
+  .bts-grid .tile:nth-child(1) { grid-column: span 2; height: 100%; aspect-ratio: auto; contain: size; }
+  .bts-grid .tile:nth-child(2) { grid-column: span 4; aspect-ratio: 3 / 2; }
 }
 
 .thin-marquee {
@@ -479,7 +478,8 @@ footer {
   .portrait-grid .tile:nth-child(1),
   .portrait-grid .tile:nth-child(6),
   .bts-grid .tile:nth-child(1) { grid-column: span 2; }
-  .editorial-grid .tile:nth-child(3) { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .editorial-grid .tile:nth-child(3),
+  .bts-grid .tile:nth-child(2) { grid-column: span 2; aspect-ratio: 4 / 3; }
   .services-grid { grid-template-columns: 1fr; }
   .services-grid div { min-height: auto; padding: 26px 22px; }
   footer { flex-direction: column; }

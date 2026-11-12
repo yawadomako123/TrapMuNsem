@@ -70,7 +70,7 @@ export const chapters = [
     layout: 'label',
     images: [
       { src: '/images/label-1.jpg', alt: 'TrapMuNsem shirt', pos: 'center 30%' },
-      { src: '/images/label-2.jpg', alt: 'Victory look', pos: 'center 30%' },
+      { src: '/images/label-2.jpg', alt: 'Mama Say She Love My Swaggg tee', pos: 'center 40%' },
       { src: '/images/label-3.jpg', alt: 'AIM05 Worldview Tee', pos: 'center 45%' },
       { src: '/images/label-4.jpg', alt: 'AIM05 — Always In Mind 05 release' },
     ],
@@ -86,8 +86,7 @@ export const chapters = [
     layout: 'bts',
     images: [
       { src: '/images/bts-1.jpg', alt: 'House of Trappers crew on the stairs', pos: 'center 62%' },
-      { src: '/images/bts-2.jpg', alt: 'Fur coat and dog, behind the scenes' },
-      { src: '/images/bts-3.jpg', alt: 'Pink fabric in motion', pos: 'center 30%' },
+      { src: '/images/bts-2.jpg', alt: 'The crew in red TrapMuNsem shirts and leopard-patched white trousers', pos: 'center 55%' },
     ],
   },
 ]
@@ -139,6 +138,15 @@ export const amamere = {
       story:
         'Three young men in sharp suits, rooted deep in the soil of their ancestors. The red wall holds the blood and sacrifice of those who came before; the suits take what was once foreign and redefine it with swagger; the rug at their feet is heritage, unshaken by time. Africa is not stuck in the past — it is rewriting the future.',
       pos: 'center 35%',
+    },
+    {
+      // TODO: draft story — replace with the client's description
+      src: '/images/vintage/vintage-3.jpg',
+      title: 'The Soundsystem',
+      era: 'Cassette days',
+      story:
+        'Before playlists lived in our pockets, the music lived in the machines — radio cassettes, boomboxes, and speakers stacked around the throne. Leopard print, a red tie, and a pair of headphones: the sound of the old days, worn loud.',
+      pos: 'center 30%',
     },
   ],
 }
