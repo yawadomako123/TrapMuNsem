@@ -100,6 +100,14 @@ export const amamere = {
     'Amamerɛ means tradition. These are the vintage pieces — found, kept, and restyled — that carry the old days into the trap. Every piece has lived a life before it got to us.',
   items: [
     {
+      src: '/images/vintage/three-faiths.jpg',
+      title: 'The Three Faiths of Ghana',
+      era: 'Heritage',
+      story:
+        'Three men, three faiths, one ground. The traditional priest with his horsetail whisk and talisman-stitched smock, the clergyman in black beneath a towering mitre, the Muslim elder in flowing blue — shoulder to shoulder before a mud-brick home. In Ghana we pray in different ways, but we stand together.',
+      pos: 'center 40%',
+    },
+    {
       src: '/images/vintage/vintage-1.jpg',
       title: 'The Journeyman',
       era: 'Village days',

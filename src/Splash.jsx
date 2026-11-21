@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { markSplashSeen } from './splashSession.js'
 import './Splash.css'
 
 const LOGO = '/images/tmn-logo.webp'
@@ -21,7 +20,6 @@ export default function Splash({ onReveal, onDone }) {
     exitingRef.current = true
     setExiting(true)
     onReveal()
-    markSplashSeen()
   }, [onReveal])
 
   // Unmount once the curtain has lifted.

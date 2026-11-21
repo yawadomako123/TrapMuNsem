@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { site, about, marqueeWord, chapters, amamere, services, contact } from './content.js'
 import Splash from './Splash.jsx'
-import { shouldShowSplash } from './splashSession.js'
 import './App.css'
 
 const YEAR = new Date().getFullYear()
@@ -251,11 +250,11 @@ function Lightbox({ state, onClose, onStep }) {
 export default function App() {
   const [active, setActive] = useState('home')
   const [lightbox, setLightbox] = useState(null)
-  const [splash, setSplash] = useState(shouldShowSplash)
+  const [splash, setSplash] = useState(true)
 
   // Lock scrolling and hold the hero animation before the first paint; released as the curtain lifts.
   useLayoutEffect(() => {
-    if (shouldShowSplash()) document.documentElement.classList.add('splash-lock')
+    document.documentElement.classList.add('splash-lock')
   }, [])
   const revealSite = useCallback(() => document.documentElement.classList.remove('splash-lock'), [])
   const closeSplash = useCallback(() => setSplash(false), [])
