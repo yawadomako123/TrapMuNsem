@@ -15,8 +15,8 @@ export const site = {
 export const about = {
   label: 'The Designer',
   paragraphs: [
-    'I’m Big Wilson — Jiggy. Creative director and fashion stylist from Ghana, founder of TrapMuNsem and artistic director for AIM05 Clothing.',
-    'My work lives between streetwear, culture, and story. I style myself and the people around me, direct the shoots, and build the images that carry the clothes — so every fit says something about where we come from.',
+    'I’m Big Wilson, also known as Jiggy. Creative director and fashion stylist from Ghana, founder of TrapMuNsem and artistic director for AIM05 Clothing.',
+    'My work lives between streetwear, culture, and story. I style myself and the people around me, direct the shoots, and build the images that carry the clothes, so every fit says something about where we come from.',
   ],
   quote: 'We turned what they feared into culture. That’s the JIGGY way.',
 }
@@ -51,7 +51,7 @@ export const chapters = [
       ['Role', 'Stylist / Creative Direction'],
       ['Photography', '@kobby_flags'],
     ],
-    text: 'Concept-led shoots built around culture, character, and memory — styled and directed by Jiggy.',
+    text: 'Concept-led shoots built around culture, character, and memory, styled and directed by Jiggy.',
     layout: 'editorial',
     images: [
       { src: '/images/editorial-1.jpg', alt: 'Ritual Drip editorial', pos: 'center 30%' },
@@ -66,13 +66,13 @@ export const chapters = [
       ['Brands', 'TrapMuNsem / AIM05'],
       ['Role', 'Founder / Artistic Director'],
     ],
-    text: 'TrapMuNsem pieces and AIM05 releases — clothes made to carry a point of view.',
+    text: 'TrapMuNsem pieces and AIM05 releases: clothes made to carry a point of view.',
     layout: 'label',
     images: [
       { src: '/images/label-1.jpg', alt: 'TrapMuNsem shirt', pos: 'center 30%' },
       { src: '/images/label-2.jpg', alt: 'Mama Say She Love My Swaggg tee', pos: 'center 40%' },
       { src: '/images/label-3.jpg', alt: 'AIM05 Worldview Tee', pos: 'center 45%' },
-      { src: '/images/label-4.jpg', alt: 'AIM05 — Always In Mind 05 release' },
+      { src: '/images/label-4.jpg', alt: 'AIM05: Always In Mind 05 release' },
     ],
   },
   {
@@ -91,20 +91,20 @@ export const chapters = [
   },
 ]
 
-// TrapMuAmamerɛ — the vintage archive. Each item is a card: photo, name, era, and a short story.
+// TrapMuAmamerɛ: the vintage archive. Each item is a card: photo, name, era, and a short story.
 // "Amamerɛ" is Twi for tradition/culture.
 export const amamere = {
   title: 'TrapMuAmamerɛ',
   label: 'The Vintage Archive',
   intro:
-    'Amamerɛ means tradition. These are the vintage pieces — found, kept, and restyled — that carry the old days into the trap. Every piece has lived a life before it got to us.',
+    'Amamerɛ means tradition. These are the vintage pieces we found, kept, and restyled to carry the old days into the trap. Every piece has lived a life before it got to us.',
   items: [
     {
       src: '/images/vintage/three-faiths.jpg',
       title: 'The Three Faiths of Ghana',
       era: 'Heritage',
       story:
-        'Three men, three faiths, one ground. The traditional priest with his horsetail whisk and talisman-stitched smock, the clergyman in black beneath a towering mitre, the Muslim elder in flowing blue — shoulder to shoulder before a mud-brick home. In Ghana we pray in different ways, but we stand together.',
+        'Three men, three faiths, one ground. The traditional priest with his horsetail whisk and talisman-stitched smock, the clergyman in black beneath a towering mitre, the Muslim elder in flowing blue. They stand shoulder to shoulder before a mud-brick home. In Ghana we pray in different ways, but we stand together.',
       pos: 'center 40%',
     },
     {
@@ -112,7 +112,7 @@ export const amamere = {
       title: 'The Journeyman',
       era: 'Village days',
       story:
-        'Back in the days, a village would gather its little savings and send one trusted son to the capital to chase a better future. The Journeyman carried his people’s hopes in a single suitcase — he left with nothing, and came home carrying his family’s survival and pride.',
+        'Back in the days, a village would gather its little savings and send one trusted son to the capital to chase a better future. The Journeyman carried his people’s hopes in a single suitcase. He left with nothing, and came home carrying his family’s survival and pride.',
       pos: 'center 30%',
     },
     {
@@ -120,7 +120,7 @@ export const amamere = {
       title: 'Ghana Must Go',
       era: '1983',
       story:
-        'In 1983, millions of Ghanaians were forced out of Nigeria with their whole lives packed into one checkered bag, and the world mocked it as the “Ghana Must Go” bag. Today we carry it not as rejection, but as resilience, culture, and pride. They said Ghana must go — we answer, Ghana must shine.',
+        'In 1983, millions of Ghanaians were forced out of Nigeria with their whole lives packed into one checkered bag, and the world mocked it as the “Ghana Must Go” bag. Today we carry it not as rejection, but as resilience, culture, and pride. They said Ghana must go. We answer: Ghana must shine.',
       pos: 'center 45%',
     },
     {
@@ -128,7 +128,7 @@ export const amamere = {
       title: 'Old Soldier Never Dies',
       era: 'Pan-African',
       story:
-        'The turban carries Gaddafi’s spirit — the man who dreamed of one Africa, free and proud. They called him a rebel, but he spoke unity, a vision too bold for his time. His fire lives on in everyone who still believes the continent can rise as one.',
+        'The turban carries the spirit of Gaddafi, the man who dreamed of one Africa, free and proud. They called him a rebel, but he spoke unity, a vision too bold for his time. His fire lives on in everyone who still believes the continent can rise as one.',
       pos: 'center 30%',
     },
     {
@@ -136,7 +136,7 @@ export const amamere = {
       title: 'Back Then',
       era: 'Radio days',
       story:
-        'Before the scrolls, likes, and filters, there was rhythm. Our parents sat close by the radio, laughing, dreaming, and dancing to the crackle of a gramophone tune — no Wi-Fi, no hashtags, just pure connection. They didn’t need the internet to go viral; their love already did.',
+        'Before the scrolls, likes, and filters, there was rhythm. Our parents sat close by the radio, laughing, dreaming, and dancing to the crackle of a gramophone tune. No Wi-Fi, no hashtags, just pure connection. They didn’t need the internet to go viral; their love already did.',
       pos: 'center 55%',
     },
     {
@@ -144,27 +144,27 @@ export const amamere = {
       title: 'Rooted in Culture',
       era: 'African renaissance',
       story:
-        'Three young men in sharp suits, rooted deep in the soil of their ancestors. The red wall holds the blood and sacrifice of those who came before; the suits take what was once foreign and redefine it with swagger; the rug at their feet is heritage, unshaken by time. Africa is not stuck in the past — it is rewriting the future.',
+        'Three young men in sharp suits, rooted deep in the soil of their ancestors. The red wall holds the blood and sacrifice of those who came before; the suits take what was once foreign and redefine it with swagger; the rug at their feet is heritage, unshaken by time. Africa is not stuck in the past. It is rewriting the future.',
       pos: 'center 35%',
     },
     {
-      // TODO: draft story — replace with the client's description
+      // TODO: draft story, replace with the client's description
       src: '/images/vintage/vintage-3.jpg',
       title: 'The Soundsystem',
       era: 'Cassette days',
       story:
-        'Before playlists lived in our pockets, the music lived in the machines — radio cassettes, boomboxes, and speakers stacked around the throne. Leopard print, a red tie, and a pair of headphones: the sound of the old days, worn loud.',
+        'Before playlists lived in our pockets, the music lived in the machines: radio cassettes, boomboxes, and speakers stacked around the throne. Leopard print, a red tie, and a pair of headphones: the sound of the old days, worn loud.',
       pos: 'center 30%',
     },
   ],
 }
 
 export const services = [
-  ['Fashion Styling', 'Looks for shoots, artists, campaigns, and appearances — built around character and culture.'],
+  ['Fashion Styling', 'Looks for shoots, artists, campaigns, and appearances, built around character and culture.'],
   ['Creative Direction', 'Concept, casting, location, and mood for editorials, films, and releases.'],
   ['Visual Direction', 'Shaping how a brand or artist is seen, from the first idea to the final image.'],
   ['TrapMuNsem Pieces', 'Original and made-to-order garments from the label, like the Double P and Triple pants.'],
-  ['Brand Direction', 'Artistic direction for clothing labels — release concepts, lookbooks, and campaigns.'],
+  ['Brand Direction', 'Artistic direction for clothing labels: release concepts, lookbooks, and campaigns.'],
   ['Collaborations', 'Capsules and projects with photographers, brands, artists, and other creatives.'],
 ]
 
