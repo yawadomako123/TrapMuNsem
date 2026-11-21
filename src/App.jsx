@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { site, about, marqueeWord, chapters, amamere, services, contact } from './content.js'
+import Splash from './Splash.jsx'
+import { shouldShowSplash } from './splashSession.js'
 import './App.css'
 
 const YEAR = new Date().getFullYear()
@@ -249,6 +251,14 @@ function Lightbox({ state, onClose, onStep }) {
 export default function App() {
   const [active, setActive] = useState('home')
   const [lightbox, setLightbox] = useState(null)
+  const [splash, setSplash] = useState(shouldShowSplash)
+
+  // Lock scrolling and hold the hero animation before the first paint; released as the curtain lifts.
+  useLayoutEffect(() => {
+    if (shouldShowSplash()) document.documentElement.classList.add('splash-lock')
+  }, [])
+  const revealSite = useCallback(() => document.documentElement.classList.remove('splash-lock'), [])
+  const closeSplash = useCallback(() => setSplash(false), [])
 
   // Highlight the nav link for whichever section is mid-viewport.
   useEffect(() => {
@@ -301,6 +311,7 @@ export default function App() {
         </a>
       </footer>
       <Lightbox state={lightbox} onClose={() => setLightbox(null)} onStep={step} />
+      {splash && <Splash onReveal={revealSite} onDone={closeSplash} />}
     </>
   )
 }

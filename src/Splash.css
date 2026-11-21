@@ -1,0 +1,229 @@
+/* ---------- TMN splash ----------
+   Timeline (from .is-ready): flare 0s → logo spins in from edge-on and turns twice →
+   locks face-front at ~2.8s with a burst, shake, RGB split and chrome shine →
+   curtain lifts at ~3.7s (.is-exit) revealing the site underneath. */
+
+.splash {
+  --w: min(88vw, 640px);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 50%, #141414 0%, #050505 55%, #000 100%);
+  cursor: pointer;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.95s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.splash.is-exit { clip-path: inset(0 0 100% 0); }
+
+/* Film grain */
+.splash-grain {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.13;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: splash-grain 0.6s steps(6) infinite;
+}
+@keyframes splash-grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-6%, 4%); }
+  40% { transform: translate(5%, -7%); }
+  60% { transform: translate(-3%, 8%); }
+  80% { transform: translate(7%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Light streak that opens the sequence */
+.splash-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  transform: translate(-50%, -50%) scaleX(0);
+  background: linear-gradient(90deg, transparent, #fff 50%, transparent);
+  box-shadow: 0 0 24px 4px rgba(255, 255, 255, 0.55);
+  opacity: 0;
+}
+.is-ready .splash-flare { animation: splash-flare 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.05s both; }
+@keyframes splash-flare {
+  0% { transform: translate(-50%, -50%) scaleX(0); opacity: 1; }
+  60% { opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scaleX(1.2); opacity: 0; }
+}
+
+/* White burst when the logo locks */
+.splash-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--w);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.25) 35%, transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+}
+/* Delayed effects use fill "forwards", not "both": backwards fill would show their first frame during the delay. */
+.is-ready .splash-burst { animation: splash-burst 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) 2.78s forwards; }
+@keyframes splash-burst {
+  0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.95; }
+  100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+}
+
+/* Stage: fades the logo in; exit wrapper lifts it away with the curtain */
+.splash-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.splash:not(.is-ready) .splash-stage { opacity: 0; }
+.is-ready .splash-stage { animation: splash-in 0.6s ease-out 0.15s both; }
+@keyframes splash-in {
+  from { opacity: 0; filter: blur(14px); }
+  to { opacity: 1; filter: blur(0); }
+}
+.splash-exit { transition: transform 0.8s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.6s ease; }
+.is-exit .splash-exit { transform: translateY(-22vh) scale(0.72); opacity: 0; }
+
+.splash-hit { perspective: 1100px; }
+.is-ready .splash-hit { animation: splash-hit 0.42s ease-out 2.78s; }
+@keyframes splash-hit {
+  0% { transform: translate(0, 0); }
+  15% { transform: translate(-7px, 3px); }
+  30% { transform: translate(6px, -4px); }
+  45% { transform: translate(-4px, -2px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* The logo itself: a 3D stack that spins like a coin */
+.splash-logo {
+  position: relative;
+  width: var(--w);
+  aspect-ratio: 1144 / 538;
+  transform-style: preserve-3d;
+  transform: rotateY(-110deg) scale(0.45);
+}
+.is-ready .splash-logo { animation: splash-spin 2.8s 0.15s both; }
+@keyframes splash-spin {
+  0% {
+    transform: rotateX(24deg) rotateY(-110deg) scale(0.45);
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  22% {
+    transform: rotateX(8deg) rotateY(0deg) scale(0.92);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.25, 1);
+  }
+  86% {
+    transform: rotateX(0deg) rotateY(720deg) scale(1.06);
+    animation-timing-function: cubic-bezier(0.3, 1.8, 0.5, 1);
+  }
+  100% { transform: rotateX(0deg) rotateY(720deg) scale(1); }
+}
+
+.splash-logo img,
+.splash-shine {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+.splash-layer {
+  transform: translateZ(calc(var(--i) * var(--w) * -0.0026));
+  filter: brightness(calc(0.62 - var(--i) * 0.035));
+}
+/* Back face stays bright so the reverse side reads as mirrored chrome mid-spin. */
+.splash-layer.is-back { filter: brightness(0.85); }
+.splash-face { transform: translateZ(0.5px); }
+
+/* RGB split on impact */
+.splash-rgb { opacity: 0; }
+.splash-rgb.is-red { filter: sepia(1) saturate(9) hue-rotate(-40deg) brightness(1.1); }
+.splash-rgb.is-cyan { filter: sepia(1) saturate(9) hue-rotate(150deg) brightness(1.1); }
+/* Copies sit behind the face so only their offset edges show as colour fringes. */
+.splash-rgb { transform: translateZ(-0.5px); }
+.is-ready .splash-rgb.is-red { animation: splash-rgb-red 0.36s steps(4) 2.78s forwards; }
+.is-ready .splash-rgb.is-cyan { animation: splash-rgb-cyan 0.36s steps(4) 2.78s forwards; }
+@keyframes splash-rgb-red {
+  0% { opacity: 0.9; transform: translate3d(-14px, 2px, -0.5px); }
+  50% { opacity: 0.6; transform: translate3d(8px, -3px, -0.5px); }
+  100% { opacity: 0; transform: translate3d(0, 0, -0.5px); }
+}
+@keyframes splash-rgb-cyan {
+  0% { opacity: 0.9; transform: translate3d(14px, -2px, -0.5px); }
+  50% { opacity: 0.6; transform: translate3d(-8px, 3px, -0.5px); }
+  100% { opacity: 0; transform: translate3d(0, 0, -0.5px); }
+}
+
+/* Chrome shine: a light band masked to the logo's shape */
+.splash-shine {
+  transform: translateZ(1.5px);
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.95) 50%, transparent 62%);
+  background-size: 260% 100%;
+  background-position: 160% 0;
+  -webkit-mask: var(--logo) center / 100% 100% no-repeat;
+  mask: var(--logo) center / 100% 100% no-repeat;
+}
+.is-ready .splash-shine {
+  animation:
+    splash-shine 0.9s ease-in-out 0.55s both,
+    splash-shine 1s ease-in-out 2.85s forwards;
+}
+@keyframes splash-shine {
+  from { background-position: 160% 0; }
+  to { background-position: -60% 0; }
+}
+
+/* Progress line + skip hint */
+.splash-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 56px;
+  width: min(220px, 50vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+.splash-bar span {
+  display: block;
+  height: 100%;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.is-ready .splash-bar span { animation: splash-bar 3.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+@keyframes splash-bar { to { transform: scaleX(1); } }
+
+.splash-skip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  margin: 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 0;
+}
+.is-ready .splash-skip { animation: splash-fade 0.6s ease 1s both; }
+@keyframes splash-fade { to { opacity: 1; } }
+
+/* While the splash is up: no scrolling, and hold the hero's zoom-in until the curtain lifts. */
+html.splash-lock { overflow: hidden; }
+html.splash-lock .hero-image { animation: none; opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-layer, .splash-rgb, .splash-shine, .splash-flare, .splash-burst { display: none; }
+  .splash-logo { transform: none; }
+}
